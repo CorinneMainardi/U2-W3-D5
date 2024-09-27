@@ -30,3 +30,24 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to bottom, rgba(251, 194, 235, 0.6), rgba(166, 193, 238, 0.6));
 }
+
+.gradient-BtnRed {
+  /* fallback for old browsers */
+  background: #a6c0fe;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, rgba(166, 192, 254, 0.35), rgba(246, 128, 132, 0.35));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgba(166, 192, 254, 0.35), rgba(246, 128, 132, 0.35));
+}
+main {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(252, 203, 144, 0.35), rgba(213, 126, 235, 0.35));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(252, 203, 144, 0.35), rgba(213, 126, 235, 0.35));
+}

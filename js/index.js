@@ -8,21 +8,25 @@ const displayProducts = (arrayP) => {
     const col = document.createElement("div");
     col.classList.add("col", "col-12", "col-md-4");
     col.innerHTML = `
-           <div class="card">
-              <img src="${p.imageUrl}" class="card-img-top" alt="immagine dei prodotti inseriti">
-              <div class="card-body d-flex flex-column">
-                  <h5 class="card-title">${p.name}</h5>
-                  <p class="card-text flex-grow-1">${p.description}</p>
-                  <p class="card-text"> ${p.price}€</p>
-                  <a href="./details.html?urlId=${p._id}" class="btn btn gradient-customBtn mt-3">Dettagli prodotto</a>
-              </div>
-          </div>`;
+        <div class="card d-flex flex-column" style="height: 100%;">
+         <a href="./details.html?idProduct=${p._id}">
+            <img src="${p.imageUrl}" class="card-img-top" alt="immagine dei prodotti inseriti" style="object-fit: contain; height: 200px;"> </a>
+            <div class="card-body d-flex flex-column flex-grow-1">
+                <h5 class="card-title">${p.name}</h5>
+                <p class="card-text flex-grow-1">${p.description}</p>
+                <p class="card-text">${p.price}€</p>
+                <a href="./details.html?idProduct=${p._id}" class="btn btn gradient-customBtn mt-3">Dettagli prodotto</a>
+                <a href="./backoffice.html?idProduct=${p._id}" class="btn gradient-BtnRed mt-3">Modifica scheda prodotto</a>
+            </div>
+        </div>`;
     const row = document.getElementById("index-row");
     row.appendChild(col);
   });
 };
 
 const getProduct = () => {
+  const loading = document.getElementById("loading");
+  loading.style.display = "inline-block";
   fetch(genericUrl, {
     headers: {
       Authorization: authorizationUrl,
@@ -38,6 +42,7 @@ const getProduct = () => {
     .then((data) => {
       console.log("prodotti in vendita", data);
       displayProducts(data);
+      loading.style.display = "none";
     })
     .catch((err) => {
       console.log("ERRORE!", err);
